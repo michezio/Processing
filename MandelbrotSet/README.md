@@ -13,9 +13,5 @@ Use IJKL to navigate the plot.
 Use V to toggle the crossair view (to mark the center where zoom will happen).
 Use B to toggle antialiasing (using a simple handmade filter, 3 filters are available but you need to change the code to switch between them).
 
-## Known bugs
-
-Not properly a bug but max depth is around 2 x 10^-5. After that everything appears pixelated. This is probably due to rounding of floats in Processing but I haven't investigated enough yet.
-
 ### License
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
