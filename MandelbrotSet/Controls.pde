@@ -81,7 +81,7 @@ void keyPressed()
 void mouseClicked()
 {
   update = true;
-  xshift += map(mouseX,0,width,-scale,scale);
-  yshift += map(mouseY,0,height,-scale,scale);
+  xshift += map(mouseX,0,width,(float)-scale,(float)scale);
+  yshift += map(mouseY,0,height,(float)-scale,(float)scale);
   //scale = scale * ZOOM;
 }
