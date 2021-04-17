@@ -1,7 +1,8 @@
 final float SIZE = 10;
-final float SPACE = -0.5;
+final float SPACE = 1;
 final float NS = 0.1;
 final float NV = 0.05;
+final float ABERRATION = 7;
 
 float side = SIZE * sqrt(3) / 2.0;
 float heit = 3*SIZE/2.0;
@@ -14,7 +15,10 @@ Triangle[][] grid;
 
 void setup()
 {
-	size(900,900);
+	size(600,600);
+
+  chromaticAberrationSetup(0.7,0.7,0,0,1,1);
+  chromaticAberrationScale(ABERRATION);
 
 	rows = floor(height/heit) + 2;
 	cols = floor(width/side) + 2;
@@ -45,7 +49,8 @@ void draw()
 			grid[y][x].show(color((noise(x*NS,y*NS,z*NS)*768)%256));
 		}
 	}
-
+  
+  chromaticAberration();
   //saveFrame();
 }
 
