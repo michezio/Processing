@@ -14,7 +14,7 @@ void setup()
   for (int i=0; i<COUNT; ++i)
     rad[i] = new Ball();
 
-  size(500,500);
+  size(800,800);
   
   chromaticAberrationSetup(CHROME);
 }

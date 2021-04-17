@@ -1,13 +1,14 @@
-final int COUNT = 20;
-final float SPEED = 0.5;
+final int COUNT = 10;
+final float SPEED = 3;
 final float RAD = 100;
 final float THRESH = 50;
+final float RAINBOWS = 1.2;
 
 Ball[] balls;
 
 void setup()
 {
-	size(600,600);
+	size(500,400);
 	colorMode(HSB);
 	balls = new Ball[COUNT];
   for (int i=0; i<COUNT; ++i)
@@ -24,14 +25,12 @@ void draw()
 			float d = 0;
 			for (Ball B : balls)
 			{
-				//d += THRESH * B.r / dist(x, y, B.pos.x, B.pos.y);
-        d += THRESH * B.r / protodist(x, y, B.pos.x, B.pos.y);
+				d += THRESH * B.r / dist(x, y, B.pos.x, B.pos.y);
+        //d += THRESH * B.r / protodist(x, y, B.pos.x, B.pos.y);
 			}
-      set(x, y, color(map(d,0,255,255,0)));
+      set(x, y, color(constrain(d,0,RAINBOWS*256-1)%256, 170, 255));
 		}
 	}
-  //filter(BLUR,1);
-  //saveFrame();
 }
 
 float protodist( float x1, float y1, float x2, float y2)
@@ -47,7 +46,7 @@ class Ball
 
 	Ball ()
 	{
-		pos = new PVector(random(3*width)-width, random(3*height)-height);
+		pos = new PVector(random(width), random(height));
 		vel = new PVector(random(SPEED/10, SPEED), 0);
 		vel.rotate(random(TWO_PI));
 		r = random(RAD/5, RAD);
@@ -57,8 +56,8 @@ class Ball
 	{
 		pos.add(vel);
 
-		if (pos.x > 2*width || pos.x < -width) vel.x *= -1;
-		if (pos.y > 2*height || pos.y < -height) vel.y *= -1;
+		if (pos.x > width || pos.x < 0) vel.x *= -1;
+		if (pos.y > height || pos.y < 0) vel.y *= -1;
 	}
 
 	void show()

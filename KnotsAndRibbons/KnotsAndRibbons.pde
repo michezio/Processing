@@ -1,4 +1,4 @@
-//import processing.pdf.*;
+import processing.pdf.*;
 
 // PARAMETERS
 
@@ -24,7 +24,7 @@ float rotor = TWO_PI/(ANGLE*CHANGE);
 
 void setup()
 {
-	size(500,500);
+	size(800,200);
   colorMode(HSB);
 	r = new Ribbon[COUNT];
   r[0] = new Ribbon(SIZE, COLOR, rotor);
@@ -36,7 +36,7 @@ void setup()
 
 void draw()
 {
-  //if (record) beginRecord(PDF, "frame-####.pdf");
+  if (record) beginRecord(PDF, "frame-####.pdf");
   
 	background(BKCOL);
   
@@ -74,7 +74,7 @@ void draw()
     r[i].show(DIM, scale);
   }
   
-  //if (record) { endRecord(); record = false; }
+  if (record) { endRecord(); record = false; }
   
 	if (realtime && frameCount%CHANGE == 0)
   {
