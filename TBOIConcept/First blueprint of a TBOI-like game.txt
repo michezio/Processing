@@ -1,0 +1,35 @@
+FIRST BLUEPRINT OF TBOI-LIKE GAME
+
+This game is actually a proof of concept based on The Binding Of Isaac.
+The whole structure resembles the game Asteroids as the player has to escape from various enemies using classic WASD direction commands and has to kill all of them in order to go to the next stage using various kind of projectiles fired using IJKL commands (or arrows).
+The player has 3 lives at the start of the game. Each enemy deals a different amount of damage varying from 1 to 3. When player loses its last life game ends and restarts from stage 1.
+Each stage begins with an according number of enemies (stage 1 has 1 normal enemy, stage 2 has 2 enemies and so on). As game proceeds different enemies will be introduced to make the game harder keeping the limit of max 10-12 enemy on screen at the same time. Enemy stats are the following (in parentesis the value for normal):
+	LIFE - how much damage can receive (1);
+	SPEED - how many pixel per frame can move (3);
+	SIZE - diameter of the collision box (40);
+	DAMAGE - damage dealt on contact (1);
+
+The player can recover its lost life picking up one of many items that can be spawned randomly during the levels. Each pickup effect will be manteined through the whole run and each modification to player's stats will be lost on death. The pickups can have a positive or negative effect but the player can't know that until it picks it up. The pickups can therefore be ignored. The only one different is LIFE UP that has only positive effect and will be different in color. Each pickup will be collectable only for the duration of the current stage where it appears. Some of the pickups are the following:
+	RANGE UP/DOWN - increases/decreases projectiles range
+	DAMAGE UP/DOWN - increases/decreases projectiles damage
+	SIZE UP/DOWN - increases/decreases projectiles size
+	SPEED UP/DOWN - increases/decreases projectiles speed
+	RATE UP/DOWN - increases/decreases projectiles rate of fire
+	FAT UP/DOWN - increases/decreases player size
+	AGILITY UP/DOWN - increases/decreases player agility
+	RUN UP/DOWN - increases/decreases player top speed
+	LIFE UP - adds 1 life
+	NEXT STAGE - special, skips to next stage
+	GHOST - renders the player invulnerable for 5 seconds
+
+This is the basis of the game. Some extra things that can be added are:
+
+Random effect on each stage (for example, no diagonal movement, fixed projectiles (0 speed), death on first touch, mirrored movement, mirrored shooting, bouncing enemies, slow motion and so on...)
+
+Player drops bombs, using a key the player can drop a bomb that explodes after 3 seconds and deals area damage. Bombs can have their own stats and can be collected in limited number.
+
+Enemies drop pickups on death, so that pickups are not stage dependent but enemy dependent. 
+
+//////////////////////////////////////////////////////
+
+To make the game more challenging, each pickup can deal a positive or negative effect. A negative effect however gives you a life up (for a max of 5 lives). The player may choose to avoid picking it up, but if an enemy picks up any of the pickups gains 5 life points and gains speed. So leaving negative pickups down isn't always the best choice, even if you have 5 lives. Moreover, between negative ones there is also a lifedown.
