@@ -1,10 +1,11 @@
 final int COUNT = 1000;
-final float FORCE = 10;
-final float DAMP = 1;
-final float VISC = 0.2;
-final int THRESH = 2500;
+final float FORCE = 1;
+final float DAMP = 0.8;
+final float VISC = 0.1;
+int THRESH = 50;
 final int SIZE = 10;
-final int SIGHT = 200;
+int SIGHT = 500;
+final float GRAVITY = 0.1;
 ArrayList<Ball> b;
 
 int hue;
@@ -13,11 +14,16 @@ PVector grav;
 
 void setup()
 {
+  
+  SIGHT *= SIGHT;
+  THRESH *= THRESH;
+
   colorMode(HSB);
 
   //fullScreen();
   size(1300,600);
   b = new ArrayList<Ball>();
+  grav = new PVector(0,GRAVITY);
   background(0);
 }
 
